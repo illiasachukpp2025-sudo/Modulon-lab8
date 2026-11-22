@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f17">
+  <meta name="description" content="Modulon — сервіс персоналізованого 3D-друку. Завантажуйте файл, обирайте матеріал та отримуйте розрахунок вартості й термінів виготовлення в реальному часі.">
+  <title>Modulon — Сервіс персоналізованого 3D-друку</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="overflow-x-hidden bg-[#0B0F17] font-['Inter',sans-serif] text-slate-100 antialiased selection:bg-cyan-300/30">
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#121824]/95 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between gap-3 px-4 py-2 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
+      <a href="#" class="inline-flex shrink-0 items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" aria-label="Modulon — на головну">
+        <img src="assets/icons/logo-Photoroom.png" alt="Modulon" class="h-9 w-[4.5rem] object-contain sm:h-12 sm:w-24">
+      </a>
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Головна навігація">
+        <a href="#calculator" class="rounded-lg text-sm text-slate-300 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Калькулятор</a>
+        <a href="#materials" class="rounded-lg text-sm text-slate-300 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Матеріали</a>
+        <a href="#b2b" class="rounded-lg text-sm text-slate-300 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">B2B</a>
+        <a href="#portfolio" class="rounded-lg text-sm text-slate-300 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">Послуги</a>
+        <a href="#faq" class="rounded-lg text-sm text-slate-300 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">FAQ</a>
+      </nav>
+      <div class="hidden items-center gap-4 sm:flex">
+        <button type="button" class="rounded-lg px-2 py-2 text-xs font-semibold text-slate-300 transition duration-200 hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]" aria-label="Мова сайту: українська">UA <span class="text-slate-600">/ EN</span></button>
+        <a href="#calculator" class="inline-flex h-10 items-center gap-2 rounded-lg border border-white/10 px-3 text-sm text-slate-300 transition duration-200 hover:border-cyan-300/40 hover:bg-cyan-300/[0.06] hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]" aria-label="Кошик">
+          <i data-lucide="shopping-bag" class="h-4 w-4" aria-hidden="true"></i>
+        </a>
+      </div>
+      <a href="#upload" class="hidden min-h-12 items-center gap-2 rounded-lg bg-[#0066FF] px-4 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824] sm:inline-flex">
+        <i data-lucide="upload" class="h-4 w-4" aria-hidden="true"></i>Завантажити 3D-модель
+      </a>
+      <a href="#upload" class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#0066FF] text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824] sm:hidden" aria-label="Завантажити модель">
+        <i data-lucide="upload" class="h-4 w-4" aria-hidden="true"></i>
+      </a>
+      <details class="relative sm:hidden">
+        <summary class="grid h-9 w-9 cursor-pointer list-none place-items-center rounded-lg border border-white/10 text-slate-200 transition hover:border-cyan-300/40 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 [&::-webkit-details-marker]:hidden">
+          <span class="sr-only">Відкрити меню</span><i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
+        </summary>
+        <nav class="absolute right-0 top-11 flex min-w-52 flex-col gap-1 rounded-xl border border-white/10 bg-[#121824] p-3 shadow-lg shadow-black/30" aria-label="Мобільна навігація">
+          <a class="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-cyan-300/10 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#calculator">Калькулятор</a>
+          <a class="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-cyan-300/10 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#materials">Матеріали</a>
+          <a class="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-cyan-300/10 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#b2b">B2B</a>
+          <a class="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-cyan-300/10 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#portfolio">Послуги</a>
+          <a class="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-cyan-300/10 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#faq">FAQ</a>
+          <div class="mt-1 flex items-center justify-between border-t border-white/10 px-3 pt-3 text-xs text-slate-400">
+            <span>Мова: UA / EN</span><a href="#calculator" class="inline-flex items-center gap-1.5" aria-label="Кошик"><i data-lucide="shopping-bag" class="h-4 w-4" aria-hidden="true"></i>Кошик</a>
+          </div>
+          <a class="mt-1 rounded-lg bg-[#0066FF] px-3 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]" href="#upload">Завантажити 3D-модель</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative isolate overflow-hidden border-b border-white/5" aria-labelledby="hero-title">
+      <div class="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden bg-[#0B0F17] md:block">
+        <video class="h-full w-full object-contain opacity-55 md:object-cover" autoplay muted loop playsinline poster="assets/images/hero_bg.webp" aria-hidden="true">
+          <source src="assets/videos/video_content.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="pointer-events-none absolute inset-0 z-[1] hidden bg-gradient-to-r from-[#0B0F17]/55 via-[#0B0F17]/35 to-[#0B0F17]/45 md:block" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-40 -top-40 -z-10 h-[34rem] w-[34rem] rounded-full bg-blue-600/15 blur-[120px]"></div>
+      <div class="pointer-events-none absolute -bottom-48 left-1/4 -z-10 h-96 w-96 rounded-full bg-cyan-400/10 blur-[120px]"></div>
+      <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 md:gap-12 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+        <div class="relative isolate -mx-4 overflow-hidden px-4 py-6 sm:-mx-6 sm:px-6 sm:py-8 md:mx-0 md:overflow-visible md:px-0 md:py-0">
+          <video class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-[70%_center] opacity-55 md:hidden" autoplay muted loop playsinline poster="assets/images/hero_bg.webp" aria-hidden="true">
+            <source src="assets/videos/video_content.mp4" type="video/mp4">
+          </video>
+          <div class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-[#0B0F17]/50 via-[#0B0F17]/55 to-[#0B0F17]/90 md:hidden" aria-hidden="true"></div>
+          <div class="relative z-10">
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-3 py-1.5 text-xs font-semibold tracking-wide text-cyan-200">
+            <span class="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_#00E5FF]"></span>Modulon · персоналізований 3D-друк
+          </p>
+          <h1 id="hero-title" class="max-w-2xl text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">Твоя 3D-модель. Реальна ціна за 60 секунд.</h1>
+          <p class="mt-6 max-w-xl text-base leading-7 text-slate-400 sm:text-lg">Завантажуй файл, обирай матеріал та отримуй точний розрахунок вартості й термінів виготовлення в реальному часі — без дзвінків та очікування.</p>
+          <a href="#upload" class="mt-9 inline-flex min-h-12 w-full max-w-full min-w-0 items-center justify-center gap-2 rounded-lg bg-[#0066FF] px-4 py-3 text-center font-bold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F17] sm:w-auto sm:px-6">
+            <span class="min-w-0 whitespace-normal">Розрахувати вартість за 1 хвилину</span><i data-lucide="arrow-up-right" class="h-4 w-4 shrink-0" aria-hidden="true"></i>
+          </a>
+          <div class="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm text-slate-300">
+            <span class="inline-flex items-center gap-2"><i data-lucide="user-round-x" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>Без обов'язкової реєстрації</span>
+            <span class="inline-flex items-center gap-2"><i data-lucide="shield-check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>Client-side захист IP</span>
+            <span class="inline-flex items-center gap-2"><i data-lucide="clock-3" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>Ціна за 60 секунд</span>
+          </div>
+          <p class="mt-4 text-xs text-slate-500">STL, OBJ, 3MF · Аналіз у браузері</p>
+          </div>
+        </div>
+
+        <article id="upload" class="relative rounded-xl border border-white/10 bg-[#121824]/50 p-3 shadow-lg shadow-black/30 backdrop-blur-md sm:p-5" aria-labelledby="upload-title">
+          <div class="mb-3 flex items-center justify-between px-1">
+            <div><p class="text-xs font-medium uppercase tracking-[0.18em] text-slate-500">Modulon</p><h2 id="upload-title" class="mt-1 text-sm font-semibold text-slate-100">Завантаження 3D-моделі</h2></div>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-2.5 py-1 text-xs text-cyan-200"><i data-lucide="lock-keyhole" class="h-3 w-3" aria-hidden="true"></i>Client-side</span>
+          </div>
+          <label id="drop-zone" for="model-file" class="group relative flex min-h-[230px] cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border border-dashed border-white/40 bg-[#0B0F17]/20 p-5 text-center transition duration-200 hover:border-cyan-300/70 hover:bg-[#0066FF]/10 focus-within:ring-2 focus-within:ring-cyan-300 sm:min-h-[270px] sm:p-6">
+            <span class="relative z-10 mb-3 grid h-12 w-12 place-items-center rounded-xl border border-cyan-300/20 bg-[#0066FF]/15 text-cyan-300 transition duration-200 group-hover:scale-105"><i data-lucide="upload-cloud" class="h-6 w-6" aria-hidden="true"></i></span>
+            <span class="relative z-10 text-base font-semibold text-white">Drag &amp; Drop 3D файл сюди (STL, OBJ, 3MF)</span>
+            <span class="relative z-10 mt-1 text-sm text-slate-300">STL, OBJ або 3MF</span>
+            <span class="relative z-10 mt-4 inline-flex min-h-12 items-center justify-center rounded-lg bg-[#0066FF] px-6 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition duration-200 group-hover:bg-blue-500 group-hover:shadow-xl group-hover:shadow-blue-950/30">Завантажити</span>
+            <input id="model-file" type="file" accept=".stl,.obj,.3mf,model/stl,model/obj,application/vnd.ms-package.3dmanufacturing-3dmodel+xml" class="sr-only">
+            <div class="pointer-events-none absolute bottom-4 left-4 right-4 hidden justify-between font-['JetBrains_Mono',monospace] text-xs text-slate-500 sm:flex"><span>X <span class="text-cyan-300">—</span> mm</span><span>Y <span class="text-cyan-300">—</span> mm</span><span>Z <span class="text-cyan-300">—</span> mm</span></div>
+          </label>
+          <p id="upload-status" class="mt-3 min-h-5 text-center text-xs text-slate-400" aria-live="polite">Файл не завантажується на сервер.</p>
+          <div class="mt-3 flex items-center justify-between border-t border-white/[0.07] pt-3 text-xs text-slate-500"><span class="inline-flex items-center gap-1.5"><i data-lucide="hard-drive" class="h-3.5 w-3.5" aria-hidden="true"></i>STL · OBJ · 3MF</span><span class="inline-flex items-center gap-1.5"><i data-lucide="scan-line" class="h-3.5 w-3.5" aria-hidden="true"></i>Аналіз геометрії</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20" aria-labelledby="benefits-title">
+      <div class="mb-9 max-w-2xl"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Instant Quote · Client-side · Mesh Analysis</p><h2 id="benefits-title" class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Переваги</h2></div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30 sm:p-6">
+          <span class="grid h-10 w-10 place-items-center rounded-lg bg-[#0066FF]/10 text-cyan-300"><i data-lucide="zap" class="h-5 w-5" aria-hidden="true"></i></span><h3 class="mt-6 font-semibold text-white">Instant Quote (20–90 сек)</h3><p class="mt-3 text-sm leading-6 text-slate-400">Миттєвий автоматичний розрахунок вартості одразу після завантаження без очікування відповіді менеджера.</p>
+        </article>
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30 sm:p-6">
+          <span class="grid h-10 w-10 place-items-center rounded-lg bg-cyan-300/10 text-cyan-200"><i data-lucide="shield-check" class="h-5 w-5" aria-hidden="true"></i></span><h3 class="mt-6 font-semibold text-white">Client-side захист IP</h3><p class="mt-3 text-sm leading-6 text-slate-400">Аналіз та обробка геометрії виконуються в браузері без збереження файлів на сторонніх серверах.</p>
+        </article>
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30 sm:p-6">
+          <span class="grid h-10 w-10 place-items-center rounded-lg bg-[#0066FF]/10 text-cyan-300"><i data-lucide="scan-search" class="h-5 w-5" aria-hidden="true"></i></span><h3 class="mt-6 font-semibold text-white">Авто-ремонт сітки (Mesh Analysis)</h3><p class="mt-3 text-sm leading-6 text-slate-400">Виявлення отворів та non-manifold помилок геометрії з можливістю їх автоматичного виправлення.</p>
+        </article>
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30 sm:p-6">
+          <span class="grid h-10 w-10 place-items-center rounded-lg bg-cyan-300/10 text-cyan-200"><i data-lucide="receipt-text" class="h-5 w-5" aria-hidden="true"></i></span><h3 class="mt-6 font-semibold text-white">Прозорий Price Breakdown</h3><p class="mt-3 text-sm leading-6 text-slate-400">Повна деталізація кошторису з розділенням витрат на матеріал, машинний час та постобробку.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="calculator" class="border-y border-white/[0.07] bg-[#0B0F17] py-16 sm:py-20" aria-labelledby="calculator-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Калькулятор</p><h2 id="calculator-title" class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Розрахунок вартості та термінів</h2></div><p class="max-w-md text-sm leading-6 text-slate-400">Завантаж файл та обери матеріал, щоб отримати розрахунок у реальному часі.</p></div>
+        <div class="grid gap-5 lg:grid-cols-[1.4fr_0.85fr]">
+          <article class="rounded-xl border border-white/10 bg-[#121824] p-4 sm:p-6" aria-labelledby="config-title">
+            <div class="flex items-center justify-between"><h3 id="config-title" class="font-semibold text-white">Параметри моделі</h3><span class="rounded-md border border-white/10 px-2 py-1 font-['JetBrains_Mono',monospace] text-xs text-slate-400">FDM / SLA</span></div>
+            <div class="mt-6">
+              <div class="mb-3 flex items-center justify-between"><p class="text-sm font-medium text-slate-200">Матеріал</p><a href="#materials" class="rounded-lg text-xs text-cyan-300 transition duration-200 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]">Порівняти матеріали <span aria-hidden="true">→</span></a></div>
+              <div class="grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Оберіть матеріал">
+                <button type="button" data-material="PLA" aria-pressed="true" class="material-option rounded-xl border border-cyan-300/40 bg-cyan-300/[0.07] p-3 text-left transition duration-200 hover:border-cyan-300 hover:bg-cyan-300/[0.10] hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><span class="block text-sm font-semibold text-white">PLA</span><span class="mt-1 block text-xs text-slate-400">Декор та макети</span></button>
+                <button type="button" data-material="PETG" aria-pressed="false" class="material-option rounded-xl border border-white/10 bg-[#0B0F17] p-3 text-left transition duration-200 hover:border-cyan-300/60 hover:bg-cyan-300/[0.06] hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><span class="block text-sm font-semibold text-white">PETG</span><span class="mt-1 block text-xs text-slate-400">Міцні кріплення</span></button>
+                <button type="button" data-material="ABS" aria-pressed="false" class="material-option rounded-xl border border-white/10 bg-[#0B0F17] p-3 text-left transition duration-200 hover:border-cyan-300/60 hover:bg-cyan-300/[0.06] hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><span class="block text-sm font-semibold text-white">ABS</span><span class="mt-1 block text-xs text-slate-400">Термостійкі корпуси</span></button>
+                <button type="button" data-material="Resin" aria-pressed="false" class="material-option rounded-xl border border-white/10 bg-[#0B0F17] p-3 text-left transition duration-200 hover:border-cyan-300/60 hover:bg-cyan-300/[0.06] hover:shadow-lg hover:shadow-cyan-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><span class="block text-sm font-semibold text-white">Resin</span><span class="mt-1 block text-xs text-slate-400">Висока деталізація</span></button>
+              </div>
+              <p id="material-note" class="mt-3 text-xs text-slate-500" aria-live="polite">PLA — декор та макети.</p>
+            </div>
+            <div class="mt-7 flex items-center gap-3 rounded-xl border border-white/[0.07] bg-[#0B0F17]/70 p-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[#0066FF]/10 text-cyan-300"><i data-lucide="box" class="h-5 w-5" aria-hidden="true"></i></span>
+              <div class="min-w-0 flex-1"><p class="text-sm font-medium text-white">Об'єм · вага в грамах · габарити</p><p class="mt-1 font-['JetBrains_Mono',monospace] text-xs text-slate-500">Розрахунок на основі моделі та матеріалу</p></div>
+              <span class="hidden rounded-full bg-cyan-300/[0.06] px-2.5 py-1 text-xs font-medium text-cyan-200 sm:inline-flex">Client-side</span>
+            </div>
+          </article>
+          <aside class="flex flex-col rounded-xl border border-blue-400/20 bg-[#121824] p-5 sm:p-6" aria-labelledby="price-title">
+            <div class="flex items-center justify-between"><h3 id="price-title" class="font-semibold text-white">Деталізація вартості</h3><i data-lucide="receipt" class="h-5 w-5 text-cyan-300" aria-hidden="true"></i></div>
+            <dl class="mt-6 space-y-4 text-sm">
+              <div class="flex justify-between gap-4"><dt class="text-slate-400">Матеріал <span id="price-material-label">(PLA)</span></dt><dd id="price-material" class="font-['JetBrains_Mono',monospace] text-slate-200">—</dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-slate-400">Машинний час</dt><dd id="price-machine" class="font-['JetBrains_Mono',monospace] text-slate-200">—</dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-slate-400">Постобробка</dt><dd id="price-finish" class="font-['JetBrains_Mono',monospace] text-slate-200">—</dd></div>
+              <div class="border-t border-white/10 pt-4"><div class="flex items-end justify-between gap-3"><dt class="font-medium text-white">Разом</dt><dd id="price-total" class="font-['JetBrains_Mono',monospace] text-3xl font-medium tracking-tight text-cyan-300" aria-live="polite">—</dd></div></div>
+            </dl>
+            <p class="mt-4 text-xs leading-5 text-slate-500">Розрахунок враховує об'єм, точну вагу в грамах, габарити та обраний матеріал.</p>
+            <a href="#upload" class="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#0066FF] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]">Завантажити 3D-модель<i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a>
+            <p class="mt-3 text-center text-xs text-slate-500"><i data-lucide="lock" class="mr-1 inline h-3 w-3" aria-hidden="true"></i>Твій файл не залишає пристрій</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="materials" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20" aria-labelledby="materials-title">
+      <div class="mb-9 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Матеріали для 3D-друку</p><h2 id="materials-title" class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Обери свій матеріал</h2></div><p class="max-w-md text-sm leading-6 text-slate-400">PLA — декор та макети, PETG — міцні кріплення, ABS — термостійкі корпуси. Resin — висока деталізація.</p></div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition hover:-translate-y-1 hover:border-cyan-300/30">
+          <img src="assets/images/PLA.jpg" alt="Котушки PLA-пластику різних кольорів" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]">
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-lg font-semibold text-white">PLA</h3><span class="rounded-md bg-[#0066FF]/10 px-2 py-1 text-xs font-semibold text-cyan-200">FDM</span></div><p class="mt-2 text-sm text-slate-400">Декор та макети.</p><div class="mt-5 flex items-center justify-between border-t border-white/[0.07] pt-4 text-xs"><span class="text-slate-500">Застосування</span><span class="text-slate-300">Декор · макети</span></div></div>
+        </article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition hover:-translate-y-1 hover:border-cyan-300/30">
+          <img src="assets/images/Hyper-PETG-пластик-Creality-1кг-1-15-купити-україна-харків-київ-дніпро-одеса-чернігів.webp" alt="Котушка синього PETG-пластику Creality" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]">
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-lg font-semibold text-white">PETG</h3><span class="rounded-md bg-cyan-300/10 px-2 py-1 text-xs font-semibold text-cyan-200">FDM</span></div><p class="mt-2 text-sm text-slate-400">Міцні кріплення.</p><div class="mt-5 flex items-center justify-between border-t border-white/[0.07] pt-4 text-xs"><span class="text-slate-500">Застосування</span><span class="text-slate-300">Міцні кріплення</span></div></div>
+        </article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition hover:-translate-y-1 hover:border-cyan-300/30">
+          <img src="assets/images/ABS-пластик-ESUN-1-кг-light-green-купить-киев-харьков-днепр-одесса-запорожье-львов-1.webp" alt="Котушка зеленого ABS-пластику" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]">
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-lg font-semibold text-white">ABS</h3><span class="rounded-md bg-[#0066FF]/10 px-2 py-1 text-xs font-semibold text-cyan-200">FDM</span></div><p class="mt-2 text-sm text-slate-400">Термостійкі корпуси.</p><div class="mt-5 flex items-center justify-between border-t border-white/[0.07] pt-4 text-xs"><span class="text-slate-500">Застосування</span><span class="text-slate-300">Термостійкі корпуси</span></div></div>
+        </article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition hover:-translate-y-1 hover:border-cyan-300/30">
+          <img src="assets/images/3d-druk-z-hnuchkoho-formlabs-elastic-50a-700x400w.jpg" alt="Прозора деталь, надрукована з фотополімерного матеріалу" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]">
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-lg font-semibold text-white">Resin</h3><span class="rounded-md bg-cyan-300/10 px-2 py-1 text-xs font-semibold text-cyan-200">SLA</span></div><p class="mt-2 text-sm text-slate-400">Високоточний друк фотополімерною смолою для деталей із високою деталізацією та ювелірних мікро-моделей.</p><div class="mt-5 flex items-center justify-between border-t border-white/[0.07] pt-4 text-xs"><span class="text-slate-500">Застосування</span><span class="text-slate-300">Мікро-моделі</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="border-y border-white/[0.07] bg-[#121824] py-12 sm:py-16" aria-label="Переваги Modulon">
+      <div class="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+        <div class="text-center"><p class="font-['JetBrains_Mono',monospace] text-2xl font-medium text-cyan-300 sm:text-3xl">20–90 сек</p><p class="mt-2 text-xs text-slate-400 sm:text-sm">Розрахунок вартості</p></div>
+        <div class="text-center"><p class="font-['JetBrains_Mono',monospace] text-2xl font-medium text-cyan-300 sm:text-3xl">Client-side</p><p class="mt-2 text-xs text-slate-400 sm:text-sm">Обробка геометрії в браузері</p></div>
+        <div class="text-center"><p class="font-['JetBrains_Mono',monospace] text-2xl font-medium text-cyan-300 sm:text-3xl">FDM &amp; SLA</p><p class="mt-2 text-xs text-slate-400 sm:text-sm">Технології друку</p></div>
+        <div class="text-center"><p class="font-['JetBrains_Mono',monospace] text-2xl font-medium text-cyan-300 sm:text-3xl">PLA · PETG · ABS</p><p class="mt-2 text-xs text-slate-400 sm:text-sm">Пластики для FDM-друку</p></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20" aria-labelledby="portfolio-title">
+      <div class="mb-9 flex items-end justify-between gap-4"><div><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Послуги</p><h2 id="portfolio-title" class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Послуги Modulon</h2></div><span class="hidden items-center gap-2 text-xs text-slate-500 sm:inline-flex"><i data-lucide="badge-check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>FDM · SLA · 3D-моделювання</span></div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30"><img src="assets/images/інженерний%20корпус.jpg" alt="Деталь для FDM 3D-друку" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]"><div class="p-5"><p class="text-xs font-medium uppercase tracking-wider text-cyan-300">FDM 3D-друк</p><h3 class="mt-2 font-semibold text-white">Друк міцних функціональних деталей</h3><p class="mt-2 text-sm leading-6 text-slate-400">PLA — декор та макети, PETG — міцні кріплення, ABS — термостійкі корпуси.</p></div></article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30"><img src="assets/images/lucid-origin_%D0%A5%D0%BE%D0%B1%D1%96-%D1%84%D1%96%D0%B3%D1%83%D1%80%D0%BA%D0%B0_%D0%B7_%D0%BB%D0%B8%D1%82%D0%BE%D1%97_%D1%81%D0%BC%D0%BE%D0%BB%D0%B8_%D0%B4%D0%B5%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE_%D0%B2%D0%B8%D0%BB%D1%96%D0%BF%D0%BB%D0%B5-0.jpg" alt="Модель для друку фотополімерною смолою" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]"><div class="p-5"><p class="text-xs font-medium uppercase tracking-wider text-cyan-300">SLA 3D-друк (Resin)</p><h3 class="mt-2 font-semibold text-white">Високоточний друк фотополімерною смолою</h3><p class="mt-2 text-sm leading-6 text-slate-400">Для деталей із високою деталізацією та ювелірних мікро-моделей.</p></div></article>
+        <article class="group overflow-hidden rounded-xl border border-white/10 bg-[#121824] transition duration-200 hover:-translate-y-1 hover:border-cyan-300/30"><img src="assets/images/gpt-image-2_%D0%9A%D1%80%D1%96%D0%BF%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F_%D0%B7_%D0%BC%D1%96%D1%86%D0%BD%D0%BE%D0%B3%D0%BE_ABS-%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D1%83_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C-0.jpg" alt="Деталь для швидкого прототипування" class="aspect-[4/3] w-full object-cover transition duration-200 group-hover:scale-[1.02]"><div class="p-5"><p class="text-xs font-medium uppercase tracking-wider text-cyan-300">Прототипування</p><h3 class="mt-2 font-semibold text-white">Швидке прототипування та малосерійне виробництво</h3><p class="mt-2 text-sm leading-6 text-slate-400">Виготовлення дослідних зразків і серійних партій із автоматичним застосуванням оптових знижок.</p></div></article>
+      </div>
+      <p class="mt-9 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Відгуки</p>
+      <h3 class="mb-5 mt-3 text-xl font-semibold text-white sm:text-2xl">Відгуки клієнтів</h3>
+      <div class="grid gap-3 sm:grid-cols-3">
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6">
+          <div class="mb-3 flex gap-1 text-cyan-300" role="img" aria-label="Оцінка: 5 з 5 зірок">
+            <i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i>
+          </div>
+          <blockquote class="text-sm leading-6 text-slate-300">«Замовляли партію з 50 корпусів для РЕБ з PETG. Калькулятор миттєво порахував оптову знижку. Якість друку та швидкість доставки на висоті.»</blockquote>
+          <footer class="mt-4 text-xs text-slate-400">Олексій, інженер-розробник</footer>
+        </article>
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6">
+          <div class="mb-3 flex gap-1 text-cyan-300" role="img" aria-label="Оцінка: 5 з 5 зірок">
+            <i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i>
+          </div>
+          <blockquote class="text-sm leading-6 text-slate-300">«Завантажив STL файл улюбленого персонажа. Система сама виправила геометрію. Надрукували зі смоли (SLA) — деталізація просто неймовірна!»</blockquote>
+          <footer class="mt-4 text-xs text-slate-400">Максим, колекціонер</footer>
+        </article>
+        <article class="rounded-xl border border-white/10 bg-[#121824] p-6">
+          <div class="mb-3 flex gap-1 text-cyan-300" role="img" aria-label="Оцінка: 5 з 5 зірок">
+            <i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-current" aria-hidden="true"></i>
+          </div>
+          <blockquote class="text-sm leading-6 text-slate-300">«Зручно, що можна відразу отримати рахунок для безготівкової оплати. ABS пластик міцний, деталі сіли ідеально.»</blockquote>
+          <footer class="mt-4 text-xs text-slate-400">Ірина, волонтерський фонд</footer>
+        </article>
+      </div>
+      <figure class="service-video">
+        <div class="embed-frame embed-frame--video">
+          <iframe
+            src="https://www.youtube.com/embed/JpPfailA0ok?si=mgeNjQwGj8KAOD3V"
+            title="YouTube відео про послуги Modulon"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </figure>
+    </section>
+
+    <section id="b2b" class="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20" aria-labelledby="b2b-title">
+      <div class="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-blue-400/20 bg-[#121824] lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="relative overflow-hidden p-6 sm:p-10 lg:p-12"><div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-600/20 blur-[90px]"></div><div class="relative"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Заклик до дії</p><h2 id="b2b-title" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">Готові втілити ваш проєкт у реальність?</h2><p class="mt-4 max-w-md text-sm leading-6 text-slate-400">Завантажте 3D-модель просто зараз та отримайте точний розрахунок вартості за 60 секунд!</p><ul class="mt-7 space-y-3 text-sm text-slate-300"><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>FDM 3D-друк: друк міцних функціональних деталей із пластиків.</li><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>SLA 3D-друк (Resin): друк фотополімерною смолою.</li><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>3D-моделювання: створення або адаптація цифрових 3D-моделей під технічні вимоги друку.</li></ul></div></div>
+        <form id="lead-form" class="border-t border-white/10 bg-[#121824] p-6 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div><label for="lead-name" class="mb-2 block text-xs font-medium text-slate-300">Ім'я</label><input id="lead-name" name="name" autocomplete="name" required placeholder="Введіть ім’я" class="h-11 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></div>
+            <div><label for="lead-email" class="mb-2 block text-xs font-medium text-slate-300">Email</label><input id="lead-email" name="email" type="email" autocomplete="email" required placeholder="Введіть email" class="h-11 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></div>
+          </div>
+          <div class="mt-4"><label for="lead-description" class="mb-2 block text-xs font-medium text-slate-300">Опис проєкту</label><textarea id="lead-description" name="description" rows="4" required placeholder="Опишіть ваш проєкт" class="w-full resize-y rounded-lg border border-white/10 bg-[#0B0F17] px-3 py-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></textarea></div>
+          <label class="mt-4 flex cursor-pointer items-start gap-3 text-xs leading-5 text-slate-400"><input id="lead-consent" name="consent" type="checkbox" required class="mt-0.5 h-4 w-4 shrink-0 accent-cyan-300"><span>Погоджуюсь на обробку персональних даних для відповіді на запит.</span></label>
+          <button type="submit" class="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0066FF] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><i data-lucide="send" class="h-4 w-4" aria-hidden="true"></i>Надіслати запит</button>
+          <p id="form-status" class="mt-3 min-h-5 text-center text-xs text-slate-400" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:pb-20" aria-labelledby="faq-title">
+      <div class="mb-7 text-center"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">FAQ</p><h2 id="faq-title" class="mt-3 text-3xl font-bold tracking-tight text-white">Коротко про важливе</h2></div>
+      <div class="divide-y divide-white/10 rounded-xl border border-white/10 bg-[#121824] px-5">
+        <details class="group py-4 transition hover:text-cyan-200"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-sm font-medium text-slate-200 transition hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 [&::-webkit-details-marker]:hidden">Як обробляється 3D-модель?<i data-lucide="chevron-down" class="h-4 w-4 shrink-0 text-slate-500 transition group-open:rotate-180" aria-hidden="true"></i></summary><p class="mt-3 pr-7 text-sm leading-6 text-slate-400">Аналіз та обробка геометрії виконуються в браузері без збереження файлів на сторонніх серверах.</p></details>
+        <details class="group py-4 transition hover:text-cyan-200"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-sm font-medium text-slate-200 transition hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 [&::-webkit-details-marker]:hidden">Які формати файлів підтримуються?<i data-lucide="chevron-down" class="h-4 w-4 shrink-0 text-slate-500 transition group-open:rotate-180" aria-hidden="true"></i></summary><p class="mt-3 pr-7 text-sm leading-6 text-slate-400">STL, OBJ, 3MF.</p></details>
+        <details class="group py-4 transition hover:text-cyan-200"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-sm font-medium text-slate-200 transition hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 [&::-webkit-details-marker]:hidden">Що враховує розрахунок вартості?<i data-lucide="chevron-down" class="h-4 w-4 shrink-0 text-slate-500 transition group-open:rotate-180" aria-hidden="true"></i></summary><p class="mt-3 pr-7 text-sm leading-6 text-slate-400">Об’єм, точну вагу в грамах, габарити та обраний матеріал.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-[#0B0F17]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1fr] lg:px-8">
+      <section aria-labelledby="footer-about"><a href="#" class="inline-flex items-center rounded-lg transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F17]"><img src="assets/icons/logo-Final.png" alt="Modulon" class="h-12 w-24 object-contain"></a><h2 id="footer-about" class="sr-only">Про Modulon</h2><p class="mt-4 max-w-sm text-sm leading-6 text-slate-400">Modulon — сервіс персоналізованого 3D-друку.</p><div class="mt-5 flex items-center gap-2 text-xs text-slate-500"><i data-lucide="layers" class="h-4 w-4" aria-hidden="true"></i>FDM · SLA · 3D-моделювання</div></section>
+      <nav aria-label="Посилання у футері"><h2 class="text-sm font-semibold text-white">Навігація</h2><ul class="mt-4 space-y-3 text-sm text-slate-400"><li><a class="rounded-lg transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#calculator">Калькулятор</a></li><li><a class="rounded-lg transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#materials">Матеріали</a></li><li><a class="rounded-lg transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#b2b">Заклик до дії</a></li><li><a class="rounded-lg transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300" href="#portfolio">Послуги</a></li></ul></nav>
+      <section aria-labelledby="footer-contact">
+        <h2 id="footer-contact" class="text-sm font-semibold text-white">Контакти</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-400">Завантажте 3D-модель просто зараз та отримайте точний розрахунок вартості за 60 секунд!</p>
+        <a class="mt-3 inline-flex rounded-lg px-1 py-1 text-sm text-cyan-300 transition duration-200 hover:bg-cyan-300/[0.06] hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F17]" href="#upload">Завантажити 3D-модель</a>
+        <figure class="contact-map">
+          <div class="embed-frame embed-frame--map">
+            <iframe
+              src="https://www.google.com/maps?q=49.837965,24.009013&z=17&output=embed"
+              title="Інтерактивна карта Modulon"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        </figure>
+      </section>
+    </div>
+    <div class="border-t border-white/[0.07]"><div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><small>© 2026 Modulon. Всі права захищено.</small><small>Сервіс персоналізованого 3D-друку</small></div></div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const fileInput = document.querySelector("#model-file");
+    const dropZone = document.querySelector("#drop-zone");
+    const uploadStatus = document.querySelector("#upload-status");
+    const allowedExtensions = [".stl", ".obj", ".3mf"];
+
+    function showFile(file) {
+      if (!file) return;
+      const extension = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+      if (!allowedExtensions.includes(extension)) {
+        uploadStatus.textContent = "Цей формат не підтримується. Обери файл STL, OBJ або 3MF.";
+        uploadStatus.className = "mt-3 min-h-5 text-center text-xs text-slate-300";
+        return;
+      }
+      uploadStatus.textContent = file.name;
+      uploadStatus.className = "mt-3 min-h-5 text-center text-xs text-cyan-200";
+    }
+
+    fileInput.addEventListener("change", () => showFile(fileInput.files[0]));
+    ["dragenter", "dragover"].forEach((eventName) => dropZone.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      dropZone.classList.add("border-cyan-300", "bg-[#0066FF]/10");
+    }));
+    ["dragleave", "drop"].forEach((eventName) => dropZone.addEventListener(eventName, (event) => {
+      event.preventDefault();
+      dropZone.classList.remove("border-cyan-300", "bg-[#0066FF]/10");
+    }));
+    dropZone.addEventListener("drop", (event) => showFile(event.dataTransfer.files[0]));
+
+    const materialNotes = {
+      PLA: "PLA — декор та макети.",
+      PETG: "PETG — міцні кріплення.",
+      ABS: "ABS — термостійкі корпуси.",
+      Resin: "Resin — високоточний друк фотополімерною смолою для деталей із високою деталізацією та ювелірних мікро-моделей."
+    };
+    const materialPrices = {
+      PLA: { material: "150 ₴", machine: "200 ₴", finish: "50 ₴", total: "400 ₴" },
+      PETG: { material: "180 ₴", machine: "220 ₴", finish: "60 ₴", total: "460 ₴" },
+      ABS: { material: "210 ₴", machine: "240 ₴", finish: "70 ₴", total: "520 ₴" },
+      Resin: { material: "320 ₴", machine: "280 ₴", finish: "100 ₴", total: "700 ₴" }
+    };
+    let selectedMaterial = "PLA";
+
+    function updateMaterialDetails() {
+      document.querySelector("#price-material-label").textContent = `(${selectedMaterial})`;
+      document.querySelector("#material-note").textContent = materialNotes[selectedMaterial];
+      const prices = materialPrices[selectedMaterial];
+      document.querySelector("#price-material").textContent = prices.material;
+      document.querySelector("#price-machine").textContent = prices.machine;
+      document.querySelector("#price-finish").textContent = prices.finish;
+      document.querySelector("#price-total").textContent = prices.total;
+    }
+
+    document.querySelectorAll(".material-option").forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedMaterial = button.dataset.material;
+        document.querySelectorAll(".material-option").forEach((option) => {
+          const active = option === button;
+          option.setAttribute("aria-pressed", String(active));
+          option.classList.toggle("border-cyan-300/40", active);
+          option.classList.toggle("bg-cyan-300/[0.07]", active);
+          option.classList.toggle("border-white/10", !active);
+          option.classList.toggle("bg-[#0B0F17]", !active);
+        });
+        updateMaterialDetails();
+      });
+    });
+    document.querySelector("#lead-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#form-status").textContent = "Надсилання запитів наразі не підключене.";
+    });
+  </script>
+</body>
+</html>
