@@ -246,15 +246,82 @@
     <section id="b2b" class="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20" aria-labelledby="b2b-title">
       <div class="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-blue-400/20 bg-[#121824] lg:grid-cols-[0.85fr_1.15fr]">
         <div class="relative overflow-hidden p-6 sm:p-10 lg:p-12"><div class="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-600/20 blur-[90px]"></div><div class="relative"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Заклик до дії</p><h2 id="b2b-title" class="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">Готові втілити ваш проєкт у реальність?</h2><p class="mt-4 max-w-md text-sm leading-6 text-slate-400">Завантажте 3D-модель просто зараз та отримайте точний розрахунок вартості за 60 секунд!</p><ul class="mt-7 space-y-3 text-sm text-slate-300"><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>FDM 3D-друк: друк міцних функціональних деталей із пластиків.</li><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>SLA 3D-друк (Resin): друк фотополімерною смолою.</li><li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-cyan-300" aria-hidden="true"></i>3D-моделювання: створення або адаптація цифрових 3D-моделей під технічні вимоги друку.</li></ul></div></div>
-        <form id="lead-form" class="border-t border-white/10 bg-[#121824] p-6 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div><label for="lead-name" class="mb-2 block text-xs font-medium text-slate-300">Ім'я</label><input id="lead-name" name="name" autocomplete="name" required placeholder="Введіть ім’я" class="h-11 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></div>
-            <div><label for="lead-email" class="mb-2 block text-xs font-medium text-slate-300">Email</label><input id="lead-email" name="email" type="email" autocomplete="email" required placeholder="Введіть email" class="h-11 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></div>
-          </div>
-          <div class="mt-4"><label for="lead-description" class="mb-2 block text-xs font-medium text-slate-300">Опис проєкту</label><textarea id="lead-description" name="description" rows="4" required placeholder="Опишіть ваш проєкт" class="w-full resize-y rounded-lg border border-white/10 bg-[#0B0F17] px-3 py-3 text-sm text-white placeholder:text-slate-600 focus:border-cyan-300/60 focus:outline-none focus:ring-2 focus:ring-cyan-300/10"></textarea></div>
-          <label class="mt-4 flex cursor-pointer items-start gap-3 text-xs leading-5 text-slate-400"><input id="lead-consent" name="consent" type="checkbox" required class="mt-0.5 h-4 w-4 shrink-0 accent-cyan-300"><span>Погоджуюсь на обробку персональних даних для відповіді на запит.</span></label>
-          <button type="submit" class="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0066FF] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-950/30 transition duration-200 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-950/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"><i data-lucide="send" class="h-4 w-4" aria-hidden="true"></i>Надіслати запит</button>
-          <p id="form-status" class="mt-3 min-h-5 text-center text-xs text-slate-400" aria-live="polite"></p>
+        <form
+          id="lead-form"
+          action="#"
+          method="post"
+          novalidate
+          class="mx-auto max-w-2xl border-t border-white/10 bg-[#121824] p-6 text-[#F8FAFC] md:p-8 lg:border-l lg:border-t-0 rounded-xl"
+          aria-label="Форма зворотного зв'язку та замовлення"
+        >
+          <fieldset>
+            <legend class="mb-6 text-lg font-semibold text-[#F8FAFC]">
+              Форма зворотного зв'язку та замовлення
+            </legend>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div>
+                <label for="user_name" class="mb-2 block text-sm font-medium text-[#94A3B8]">Ім’я</label>
+                <input type="text" name="user_name" id="user_name" required aria-required="true" aria-describedby="user_name-error" autocomplete="name"
+                  class="h-12 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-4 py-3 text-base text-[#F8FAFC] transition-all duration-200 placeholder:text-[#94A3B8] hover:border-white/20 focus:outline-none focus:border-[#00E5FF] focus:ring-2 focus:ring-[#00E5FF]/20">
+                <span id="user_name-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Введіть ім’я.</span>
+              </div>
+
+              <div>
+                <label for="user_email" class="mb-2 block text-sm font-medium text-[#94A3B8]">Електронна пошта</label>
+                <input type="email" name="user_email" id="user_email" required aria-required="true" aria-describedby="user_email-error" autocomplete="email"
+                  class="h-12 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-4 py-3 text-base text-[#F8FAFC] transition-all duration-200 placeholder:text-[#94A3B8] hover:border-white/20 focus:outline-none focus:border-[#00E5FF] focus:ring-2 focus:ring-[#00E5FF]/20">
+                <span id="user_email-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Введіть коректну адресу електронної пошти.</span>
+              </div>
+
+              <div>
+                <label for="user_phone" class="mb-2 block text-sm font-medium text-[#94A3B8]">Телефон</label>
+                <input type="tel" name="user_phone" id="user_phone" placeholder="+380 (99) 250-00-65"
+                  inputmode="tel" maxlength="20"
+                  required aria-required="true" aria-describedby="user_phone-error" autocomplete="tel"
+                  class="h-12 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-4 py-3 text-base text-[#F8FAFC] transition-all duration-200 placeholder:text-[#94A3B8] hover:border-white/20 focus:outline-none focus:border-[#00E5FF] focus:ring-2 focus:ring-[#00E5FF]/20">
+                <span id="user_phone-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Введіть номер телефону.</span>
+              </div>
+
+              <div>
+                <label for="user_service" class="mb-2 block text-sm font-medium text-[#94A3B8]">Тема / Послуга</label>
+                <select name="user_service" id="user_service" required aria-required="true" aria-describedby="user_service-error"
+                  class="h-12 w-full rounded-lg border border-white/10 bg-[#0B0F17] px-4 py-3 text-base text-[#F8FAFC] transition-all duration-200 hover:border-white/20 focus:outline-none focus:border-[#00E5FF] focus:ring-2 focus:ring-[#00E5FF]/20">
+                  <option value="" disabled selected>Оберіть послугу</option>
+                  <option value="fdm">FDM 3D-друк</option>
+                  <option value="sla">SLA 3D-друк</option>
+                  <option value="modeling">3D-моделювання</option>
+                  <option value="other">Інше</option>
+                </select>
+                <span id="user_service-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Оберіть тему або послугу.</span>
+              </div>
+
+              <div class="col-span-full">
+                <label for="user_message" class="mb-2 block text-sm font-medium text-[#94A3B8]">Повідомлення</label>
+                <textarea name="user_message" id="user_message" rows="5" required aria-required="true" aria-describedby="user_message-error"
+                  class="w-full resize-y rounded-lg border border-white/10 bg-[#0B0F17] px-4 py-3 text-base text-[#F8FAFC] transition-all duration-200 placeholder:text-[#94A3B8] hover:border-white/20 focus:outline-none focus:border-[#00E5FF] focus:ring-2 focus:ring-[#00E5FF]/20"></textarea>
+                <span id="user_message-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Опишіть технічне завдання, матеріал або тираж.</span>
+              </div>
+
+              <div class="col-span-full">
+                <div class="flex items-start gap-3">
+                  <input type="checkbox" name="privacy_consent" id="privacy_consent" required aria-required="true" aria-describedby="privacy_consent-error"
+                    class="mt-0.5 h-5 w-5 shrink-0 rounded border-white/10 accent-[#00E5FF] transition-all duration-200 hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/20">
+                  <label for="privacy_consent" class="text-sm leading-5 text-[#94A3B8]">Погоджуюся з політикою конфіденційності та захистом IP-прав (GDPR).</label>
+                </div>
+                <span id="privacy_consent-error" class="mt-1 hidden text-xs text-rose-400" role="alert">Для надсилання запиту необхідно підтвердити згоду.</span>
+              </div>
+
+              <div class="col-span-full flex justify-end">
+                <button type="submit"
+                  class="h-12 w-full md:w-auto rounded-lg bg-gradient-to-r from-[#0066FF] to-[#00E5FF] px-8 font-medium text-[#F8FAFC] shadow-lg shadow-blue-950/30 transition-all duration-200 hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#00E5FF] active:scale-[0.98]">
+                  Надіслати запит
+                </button>
+              </div>
+
+              <p id="form-status" class="col-span-full min-h-5 text-center text-xs text-[#94A3B8]" aria-live="polite"></p>
+            </div>
+          </fieldset>
         </form>
       </div>
     </section>
@@ -292,6 +359,29 @@
     </div>
     <div class="border-t border-white/[0.07]"><div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><small>© 2026 Modulon. Всі авторські права захищено.</small><small>Сервіс персоналізованого 3D-друку</small></div></div>
   </footer>
+
+  <dialog
+    id="success-dialog"
+    aria-modal="true"
+    aria-labelledby="success-dialog-title"
+    aria-describedby="success-dialog-description"
+    class="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border border-white/10 bg-[#121824] p-6 text-[#F8FAFC] shadow-2xl backdrop:bg-[#0B0F17]/80 md:p-8"
+  >
+    <div class="space-y-4">
+      <h2 id="success-dialog-title" class="text-xl font-semibold">Запит успішно перевірено</h2>
+      <p id="success-dialog-description" class="text-sm leading-6 text-[#94A3B8]">
+        Дякуємо! Усі поля заповнені коректно.
+      </p>
+      <button
+        type="button"
+        id="success-dialog-close"
+        autofocus
+        class="h-12 w-full rounded-lg bg-gradient-to-r from-[#0066FF] to-[#00E5FF] px-6 font-medium text-[#F8FAFC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E5FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#121824]"
+      >
+        Закрити
+      </button>
+    </div>
+  </dialog>
 
   <script>
     lucide.createIcons();
@@ -362,9 +452,217 @@
         updateMaterialDetails();
       });
     });
-    document.querySelector("#lead-form").addEventListener("submit", (event) => {
+    const leadForm = document.querySelector("#lead-form");
+    const phoneInput = document.querySelector("#user_phone");
+    const successDialog = document.querySelector("#success-dialog");
+    const closeSuccessDialog = document.querySelector("#success-dialog-close");
+
+    closeSuccessDialog.addEventListener("click", () => successDialog.close());
+    successDialog.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        successDialog.close();
+      }
+    });
+    const stateClasses = [
+      "border-rose-500", "ring-2", "ring-rose-500/20", "text-rose-400",
+      "border-emerald-500", "ring-emerald-500/20"
+    ];
+    const validatedFields = new WeakSet();
+
+    function setFieldState(field, errorElement, isValid) {
+      if (!field) return;
+      field.classList.remove(...stateClasses);
+
+      if (!isValid) {
+        field.classList.add("border-rose-500", "ring-2", "ring-rose-500/20", "text-rose-400");
+        field.setAttribute("aria-invalid", "true");
+        if (errorElement) {
+          errorElement.hidden = false;
+          errorElement.classList.remove("hidden");
+        }
+      } else {
+        field.classList.add("border-emerald-500", "ring-2", "ring-emerald-500/20");
+        field.removeAttribute("aria-invalid");
+        if (errorElement) {
+          errorElement.hidden = true;
+          errorElement.classList.add("hidden");
+        }
+      }
+    }
+
+    function countCharacters(value) {
+      return Array.from(value).length;
+    }
+
+    function validateField(field) {
+      const errorId = field.getAttribute("aria-describedby");
+      const error = errorId ? document.getElementById(errorId) : null;
+      let isValid;
+      let errorMessage = "";
+
+      if (field.type === "tel") {
+        return validatePhone(true);
+      }
+      if (field.type === "checkbox") {
+        isValid = field.checked;
+      } else if (field.tagName === "SELECT") {
+        isValid = field.value !== "";
+      } else if (field.type === "email") {
+        isValid = field.validity.valid;
+      } else if (field.id === "user_name") {
+        isValid = countCharacters(field.value.trim()) >= 2;
+        errorMessage = "Ім’я повинно містити щонайменше 2 символи.";
+      } else if (field.id === "user_message") {
+        isValid = countCharacters(field.value.trim()) >= 10;
+        errorMessage = "Повідомлення повинно містити щонайменше 10 символів.";
+      } else {
+        isValid = field.value.trim().length > 0;
+      }
+
+      if (!isValid && error && errorMessage) {
+        error.textContent = errorMessage;
+      }
+      setFieldState(field, error, isValid);
+      return isValid;
+    }
+
+    function validatePhone(showError = true) {
+      const phoneError = document.querySelector("#user_phone-error");
+      const rawValue = phoneInput.value;
+      const normalizedValue = rawValue.replace(/[\s\u00a0\u202f]+/g, " ");
+      const allowedCharacters = /^[+0-9()\s-]+$/.test(rawValue);
+      const phonePattern = /^\+380 \([0-9]{2}\) [0-9]{3}-[0-9]{2}-[0-9]{2}$/;
+
+      let message = "";
+
+      if (!rawValue) {
+        message = "Введіть номер телефону.";
+      } else if (!allowedCharacters) {
+        message = "Номер телефону може містити лише цифри, пробіли, дужки, «+» та дефіс.";
+      } else if (!normalizedValue.startsWith("+380")) {
+        message = "Номер має починатися з +380.";
+      } else if (!phonePattern.test(normalizedValue)) {
+        message = "Введіть номер у форматі +380 (00) 000-00-00.";
+      }
+
+      const isValid = message === "";
+
+      if (showError) {
+        if (!isValid) {
+          phoneError.textContent = message;
+          setFieldState(phoneInput, phoneError, false);
+        } else {
+          setFieldState(phoneInput, phoneError, true);
+        }
+      }
+
+      return isValid;
+    }
+
+    phoneInput.addEventListener("input", () => {
+      if (validatedFields.has(phoneInput)) {
+        validatePhone(true);
+      }
+    });
+
+    phoneInput.addEventListener("beforeinput", (event) => {
+      if (event.data && /[^0-9+\s()\-]/.test(event.data)) {
+        event.preventDefault();
+        validatedFields.add(phoneInput);
+        const phoneError = document.querySelector("#user_phone-error");
+        phoneError.textContent = "Номер телефону може містити лише цифри, пробіли, дужки, «+» та дефіс.";
+        setFieldState(phoneInput, phoneError, false);
+      }
+    });
+
+    phoneInput.addEventListener("paste", (event) => {
+      const pastedText = event.clipboardData?.getData("text") || "";
+      if (/[^0-9+\s()\-]/.test(pastedText)) {
+        event.preventDefault();
+        validatedFields.add(phoneInput);
+        const phoneError = document.querySelector("#user_phone-error");
+        phoneError.textContent = "Номер телефону містить недопустимі символи. Дозволені лише цифри, пробіли, дужки, «+» та дефіс.";
+        setFieldState(phoneInput, phoneError, false);
+      }
+    });
+
+    leadForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      document.querySelector("#form-status").textContent = "Надсилання запитів наразі не підключене.";
+      validatePhone(true);
+
+      const fields = [
+        {
+          field: document.querySelector("#user_name"),
+          error: document.querySelector("#user_name-error"),
+          valid: countCharacters(document.querySelector("#user_name").value.trim()) >= 2,
+          errorMessage: "Ім’я повинно містити щонайменше 2 символи."
+        },
+        {
+          field: document.querySelector("#user_email"),
+          error: document.querySelector("#user_email-error"),
+          valid: document.querySelector("#user_email").validity.valid
+        },
+        {
+          field: phoneInput,
+          error: document.querySelector("#user_phone-error"),
+          valid: validatePhone(false)
+        },
+        {
+          field: document.querySelector("#user_service"),
+          error: document.querySelector("#user_service-error"),
+          valid: document.querySelector("#user_service").value !== ""
+        },
+        {
+          field: document.querySelector("#user_message"),
+          error: document.querySelector("#user_message-error"),
+          valid: countCharacters(document.querySelector("#user_message").value.trim()) >= 10,
+          errorMessage: "Повідомлення повинно містити щонайменше 10 символів."
+        },
+        {
+          field: document.querySelector("#privacy_consent"),
+          error: document.querySelector("#privacy_consent-error"),
+          valid: document.querySelector("#privacy_consent").checked
+        }
+      ];
+
+      fields.forEach(({ field, error, valid, errorMessage }) => {
+        validatedFields.add(field);
+        if (!valid && errorMessage) {
+          error.textContent = errorMessage;
+        }
+        setFieldState(field, error, valid);
+      });
+
+      const firstInvalid = fields.find(({ valid }) => !valid);
+      if (firstInvalid) {
+        firstInvalid.field.focus();
+        return;
+      }
+
+      document.querySelector("#form-status").textContent = "";
+      if (!successDialog.open) {
+        successDialog.showModal();
+      }
+    });
+
+    leadForm.querySelectorAll("input, textarea, select").forEach((field) => {
+      field.addEventListener("blur", () => {
+        validatedFields.add(field);
+        validateField(field);
+      });
+
+      field.addEventListener("input", () => {
+        if (validatedFields.has(field)) {
+          validateField(field);
+        }
+      });
+
+      field.addEventListener("change", () => {
+        if (validatedFields.has(field)) {
+          validateField(field);
+        }
+      });
     });
   </script>
 </body>
